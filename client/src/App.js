@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { Link, Switch, Route,  BrowserRouter } from 'react-router-dom'
-import UserLogin from './components/UserSignIN/UserLogin'
-import UserRegister from './components/UserSignUP/UserRegister'
+import UserLogin from './components/userLogin/UserLogin'
+import UserRegister from './components/userRegister/UserRegister'
 
 import UserDashboard from './pages/UserDashboard'
 import './App.scss';
