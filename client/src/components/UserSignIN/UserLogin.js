@@ -9,12 +9,8 @@ const UserLogin = () => {
       const submitValueHandler = e => {
             e.preventDefault();
             console.log(` value comming from submit hadnler`,userName, userEmail, userPassword )
-
       }
-
-
-
-
+      
       return (
             <Fragment>
                   <div className="signup-background">
