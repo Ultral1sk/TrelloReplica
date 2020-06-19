@@ -14,7 +14,7 @@ const UserRegister = () => {
 
       let history = useHistory()
     
-      const submitValueHandler = e => {
+      const submitRegisterDataHandler = e => {
             e.preventDefault();
 
             if( userPassword !== userConfirmPassword ) {
@@ -23,7 +23,7 @@ const UserRegister = () => {
             }
             
             else {
-                  axios.post('http://localhost:3001/register',  userName, userEmail, userPassword )
+                  axios.post('http://localhost:3001/register', { userName, userEmail, userPassword })
                   .then(response => {
 
                         if( response.data.status === 'success' )  {
@@ -35,8 +35,10 @@ const UserRegister = () => {
                               setemailtaken(response.data.message);
                               setTimeout(() => setemailtaken(''), 2000);  
                         }
-                  })
-                  .catch(err =>  err);
+
+                  }).catch(err =>  {
+                        console.log(err)
+                  });
             }
       };
 
@@ -44,7 +46,7 @@ const UserRegister = () => {
       <Fragment>
             <div className="signup-background">
                   <div className="signup-form">
-                        <form onSubmit={submitValueHandler} method="POST">
+                        <form onSubmit={submitRegisterDataHandler} >
                                     <h2>Sign Up</h2>   
                                     <p>It's free and only takes a minute.</p>
                                     <hr />

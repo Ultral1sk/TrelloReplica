@@ -18,6 +18,8 @@ app.use(cors());
 
 
 app.use('/', authPath);
+app.use('/', authPath);
+
 
 app.listen(port, () => {
       console.log(`Server working on port: ${port}`);
