@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const UserRegister = () => {
  
@@ -12,6 +13,9 @@ const UserRegister = () => {
       const [signUPfailed, setsignUPfailed] = useState(false);
     
       const submitValueHandler = e => {
+
+            
+
             e.preventDefault();
 
             if(userPassword !== userConfirmPassword) {
@@ -19,6 +23,17 @@ const UserRegister = () => {
                   setTimeout(() => setsignUPfailed(false) , 1000);
             }
             
+            else {
+                  axios.post('http://localhost:3001/register', { userName, userEmail, userPassword })
+                  .then(response => {
+                        console.log(response)
+
+                  })
+                  .catch(err => {
+                        console.log(`post request not successful`, err)
+                  });
+            }
+
       }
 
       return (
