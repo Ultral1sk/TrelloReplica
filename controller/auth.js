@@ -50,7 +50,7 @@ exports.login =  ( req, res ) => {
       userSchema.findOne({ userEmail }, (err, result) => {
             
          if     ( err )     return res.json( { status : 'failed', message: `userEmail not found ${err}`} );    
-         if     ( !result ) return res.json( { status: 'failed', message: 'email or password wrong' } );
+         if     ( !result ) return res.json( { status : 'failed', message: 'email or password wrong' } );
          else {
 
             //COMPARATION BETWEEN THE INCOMING PASSWORD
@@ -68,8 +68,7 @@ exports.login =  ( req, res ) => {
                         const token = signToken( result.id );  // function is created on line number 10
                               
                         res.json({
-                              status : "success",
-                              message: 'Congratz! you logged in successfuly',
+                              status : "success",  message: 'Congratz! you logged in successfuly',
                               // if the status is success pass the token 
                               token
                         });

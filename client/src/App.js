@@ -1,25 +1,27 @@
-import React, { useState, Fragment } from 'react';
-import { Link, Switch, Route,  BrowserRouter } from 'react-router-dom'
-import UserLogin from './components/userLogin/UserLogin'
-import UserRegister from './components/userRegister/UserRegister'
-
-import UserDashboard from './pages/UserDashboard'
+import React                             from 'react';
+import { Route }        from 'react-router-dom'
+import UserRegister                      from './components/userRegister/UserRegister'
+import UserLogin                         from './components/userLogin/UserLogin'
+import UserDashboard                     from './pages/UserDashboard'
+import Secrets                           from './pages/Secrets'
+import withAuth                          from './utility/withAuth';
 import './App.scss';
 
 function App() {
 
-  
-
   return (
-    <BrowserRouter >
-        <Switch>
-          <Route exact path="/" component={UserRegister} />
-          <Route exact path="/login" component={UserLogin} />
-          <Route exact path="/userdashboard" component={UserDashboard} />
-        </Switch>
-    </BrowserRouter>
+    <Route>
+        {/* PROTECTED Routes */}
+        <Route exact path="/"         component={withAuth( UserDashboard, '/' )} />
+        <Route exact path="/secrets"  component={withAuth( Secrets, '/' )} />
 
 
+
+
+        {/* UNPROTECTED Routes */}
+        <Route exact path="/register" component={UserRegister} />
+        <Route exact path="/login"    component={UserLogin} />
+    </Route>
   );
 }
 
