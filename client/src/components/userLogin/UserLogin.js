@@ -26,7 +26,7 @@ const UserLogin = () => {
                   } 
                                      
                   else                 {  localStorage.setItem("token", res.data.token);
-                                          history.push('/userdashboard');                      
+                                          history.push('/');                      
                   }   
             }); 
       }

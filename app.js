@@ -18,7 +18,6 @@ app.use(cors());
 
 
 app.use('/', authPath);
-app.use('/', authPath);
 
 
 app.listen(port, () => {
