@@ -71,7 +71,7 @@ const UserLogin = () => {
                                           required="required" />
                               </div>             
                                     <div className="form-group">
-                                    <button type="submit" className="btn btn-primary btn-block btn-lg">Sign Up</button>
+                                    <button type="submit" className="btn btn-primary btn-block btn-lg">Sign In</button>
                               </div>
                               <div className="small text-center">By clicking the Sign in button, you agree to our 
                               <br />
