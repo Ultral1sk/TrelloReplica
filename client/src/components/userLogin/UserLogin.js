@@ -1,15 +1,13 @@
 import React, { useState, Fragment } from 'react'
 import axios                         from 'axios';
-import { useHistory }                from 'react-router-dom';
 
 const UserLogin = () => {
 
       // const [userName, setuserName]   = useState('')
-      const [userEmail, setuserEmail] = useState('')
-      const [userPassword, setuserPassword] = useState('')
-      const [errorMsg, seterrorMsg] = useState(false)
+      const [ userEmail, setuserEmail ]       = useState('')
+      const [ userPassword, setuserPassword ] = useState('')
+      const [ errorMsg, seterrorMsg ]         = useState(false)
 
-      let history = useHistory()
      
       const submitLoginDataHandler = (e) => {
             e.preventDefault();
@@ -26,7 +24,7 @@ const UserLogin = () => {
                   } 
                                      
                   else                 {  localStorage.setItem("token", res.data.token);
-                                          history.push('/');                      
+                                          window.location.href = '/';                      
                   }   
             }); 
       }

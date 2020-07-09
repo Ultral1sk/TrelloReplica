@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios                          from 'axios'
-import { Redirect, useHistory }                   from 'react-router-dom';
+import { Redirect }                   from 'react-router-dom';
 
 
 // this component with provide the props to the component only if the 
 // widthAuth function finds a token inside local storage, which means when the user is logged in
 const withAuth = ( ComponentToProtect, path ) => {
-
-      
 
       return (props) => {
 

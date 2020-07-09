@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Link, useHistory }          from 'react-router-dom';
+import { Link }          from 'react-router-dom';
 import axios                         from 'axios';
 
 const UserRegister = () => {
@@ -12,7 +12,6 @@ const UserRegister = () => {
       const [signUPsucess, setsignUPsucess]                   = useState(false);
       const [signUPfailed, setsignUPfailed]                   = useState(false);
 
-      let history = useHistory()
     
       const submitRegisterDataHandler = e => {
             e.preventDefault();
@@ -28,7 +27,7 @@ const UserRegister = () => {
 
                         if( response.data.status === 'success' )  {
                               setsignUPsucess(response.data.message);
-                              setTimeout(() => history.push("/login"), 2000);           
+                              setTimeout(() => window.location.href = "/login", 2000);           
                         }   
 
                         else  {

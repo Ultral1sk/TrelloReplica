@@ -1,0 +1,192 @@
+.modal-dialog-centered {
+      width: 300px !important;
+ 
+      .modal-content {
+            background-color: transparent !important;
+            border: 0 !important;
+      }
+      .modal-header {
+            border: 0 !important;
+            align-items: center !important;
+          
+      }
+
+      .modal-footer {
+            border: 0 !important;
+            padding: 0 !important;
+            justify-content: flex-start !important;
+      
+            button { 
+                  margin: 0 !important; 
+                  margin-left: 2px !important; 
+                  margin-top: 5px !important; 
+                  outline: none !important;
+                  border: none !important;
+                  background-color: rgba(7, 7, 7, 0.541); 
+                  border: none !important;
+                  
+                  &:focus { 
+                    background-color: rgba(7, 7, 7, 0.541) !important;  
+                    outline: none !important;
+                    border: transparent !important;
+                  }
+            }
+      }
+      
+      .modal-body {  
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 !important;
+      }
+
+
+}
+
+
+.input-title-controller {
+      width: 100% ;
+      height: 100%;
+      display: flex ;
+      justify-content: center ;
+      align-items: center ;
+      padding-top: 1rem !important;
+      input { background:  rgb(0, 121, 191)  !important; 
+      &:hover { background:  rgba(1, 83, 131, 0.466)  !important }
+      }
+      input {
+            border: 0;
+            color: white;
+            height: 50px;
+            width: 80%;
+            transition: background 0.2s ease-in-out;
+
+            &::placeholder { color: rgba(255, 255, 255, 0.568);  }
+            &:focus        { outline: none ;}
+     
+      }
+}
+.modal-create-board-color_blue {    
+      .input-title-controller { background: rgb(0, 121, 191) !important; }
+      background: rgb(0, 121, 191) !important;
+  
+      input { background:  rgb(0, 121, 191)  !important; 
+      &:hover { background:  rgba(1, 83, 131, 0.466)  !important }
+      }
+}
+.modal-create-board-color_green {    
+      .input-title-controller {    background: rgb(97, 189, 79) !important; }
+      background: rgb(97, 189, 79) !important;
+      input { background:rgb(97, 189, 79) !important;
+            &:hover { background: rgba(57, 121, 45, 0.486) !important; }
+      }
+}
+.modal-create-board-color_orange {  
+      .input-title-controller {     background: rgb(255, 171, 74) !important; }
+      background: rgb(255, 171, 74) !important;
+      input { background: rgba(255, 171, 74, 0.555) !important; 
+      &:hover { background: rgba(255, 199, 136, 0.555) !important }
+      }
+}
+.modal-create-board-color_red {   
+      .input-title-controller {       background: rgb(235, 90, 70) !important; }
+      background: rgb(235, 90, 70) !important;
+      input { background: rgb(235, 90, 70) !important; 
+            &:hover { background:rgba(150, 30, 17, 0.555) !important }
+      }
+}
+.modal-create-board-color_yellow {    
+      .input-title-controller {       background: rgb(242, 214, 0) !important; }
+      background: rgb(242, 214, 0) !important;
+      input { background:  rgb(242, 214, 0) !important; 
+            &:hover { background: rgba(133, 117, 2, 0.459) !important }
+      }
+}
+.modal-create-board-color_purple {    
+      .input-title-controller {  background: rgb(195, 119, 224) !important;  }
+      background: rgb(195, 119, 224) !important;
+      input { background: rgb(195, 119, 224) !important; 
+            &:hover { background: rgba(148, 88, 172, 0.493) !important }
+      }
+}
+.modal-create-board-color_pink {    
+      .input-title-controller {  background: rgb(255, 128, 206) !important;  }
+      background: rgb(255, 128, 206) !important;
+      input { background: rgb(255, 128, 206) !important; 
+            &:hover { background:rgba(206, 100, 165, 0.473) !important }
+      }
+}
+.modal-create-board-color_bluesky {    
+      .input-title-controller {     background: rgb(0, 194, 224) !important; }
+      background: rgb(0, 194, 224) !important;
+      input { background: rgb(0, 194, 224) !important; 
+            &:hover { background:rgba(62, 173, 190, 0.5) !important }
+      }
+}
+.modal-create-board-color_turquiose {    
+      .input-title-controller {     background: rgb(81, 232, 152)!important;}
+      background: rgb(81, 232, 152)!important;
+      input { background: rgb(81, 232, 152)!important; 
+            &:hover { background:rgba(60, 155, 104, 0.603)!important }
+      }
+}
+.modal-create-board-color_darkgray {   
+      .input-title-controller { background: rgb(103, 109, 112) !important;  }
+       background: rgb(103, 109, 112) !important;
+       input { background: rgb(103, 109, 112) !important; 
+            &:hover { background:rgba(86, 91, 94, 0.466) !important }
+      }
+}
+
+#modal-color-boxes { 
+      cursor: pointer;
+      width : 65px;
+      height: 30px;
+      margin: 0.5rem 0.1rem;
+      border-radius : 5px; 
+      text-align: center;
+      color: white;
+}
+
+#inWrapper {
+      width: inherit;
+      height: 120px;
+      
+      border-radius: 5px;
+
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+
+   
+}
+
+.in-wrapper-overwrite {
+      background: rgb(0, 121, 191) !important;
+
+}
+.close {
+      margin: 0 !important;
+      color: white !important;
+      opacity: 1;
+
+      &:focus { outline: none;}
+}
+
+
+
+
+.mystyle {
+      width: 100%;
+      padding: 25px;
+      background-color: coral;
+      color: white;
+      font-size: 25px;
+    }
+
+
+.dbBox {
+      width: 120px !important;
+      height: 70px !important;
+}

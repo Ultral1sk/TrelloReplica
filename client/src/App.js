@@ -1,5 +1,5 @@
-import React, {useState}     from 'react';
-import { Route, useHistory, Switch } from 'react-router-dom'
+import React                 from 'react';
+import { Route, Switch, useHistory }             from 'react-router-dom'
 import UserRegister          from './components/userRegister/UserRegister'
 import UserLogin             from './components/userLogin/UserLogin';
 import UserDashboard         from './pages/UserDashboard';
@@ -7,24 +7,32 @@ import TestSecretsRoute      from './pages/TestSecretsRoute';
 import withAuth              from './utility/withAuth';
 import Navbar                from './components/navbar/Navbar';
 import ErrorBoundary         from './components/error/ErrorBoudary';
+import RenderComponent from './components/RenderComponent/RederComponent'
 import './App.scss';
 
-function App() {
- 
-  return <Route>
-            <ErrorBoundary>
 
+function App() {
+
+
+  return <Route>
+            {/* <ErrorBoundary> */}
+            <ErrorBoundary>
             <Navbar />
-      
+            <Switch>
+
             {/* PROTECTED Routes */}
-            <Route exact path="/"         component={withAuth( UserDashboard, '/' )} />
-            <Route exact path="/secrets"  component={withAuth( TestSecretsRoute, '/' )} />
+            <Route exact path="/"             component={withAuth( UserDashboard, '/' )} />
+            <Route exact path="/secrets"      component={withAuth( TestSecretsRoute, '/' )} />
+    
+            {/* DYNAMIC Route */}
+            <Route exact path="/newboard/:id" component={RenderComponent} />
 
             {/* UNPROTECTED Routes */}
-            <Route exact path="/register" component={UserRegister} />
-            <Route exact path="/login"    component={UserLogin} />
-        
+            <Route exact path="/register"     component={UserRegister} />
+            <Route exact path="/login"        component={UserLogin} />
+            </Switch>
             </ErrorBoundary>
+            {/* </ErrorBoundary> */}
     </Route>
   
   
