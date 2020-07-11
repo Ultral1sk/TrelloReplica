@@ -39,7 +39,14 @@ const UserDashboard = (props) => {
             axios.post(`http://localhost:3001/newBoard/${combinedData.id}`, combinedData)
             .then(res => 
             {
-                  if( res.status === 200 ) { return window.location.reload(); }
+                  if( res.status === 200 ) { 
+                        return setCombinedData({
+                              title       : '',
+                              id          : '',
+                              divClass    : ''
+                        });
+                  
+                  }
             
                   else                     { return res.status(500);          }
                 
@@ -51,7 +58,7 @@ const UserDashboard = (props) => {
 
       // 10 colored boxes that are inside the modal 
       const renderColorBoxes = classes.map(box => {
-            return <Link to="#" key={box.id}>
+            return <Link to="#" tabIndex={box.id} key={box.id} className="ml-3 mt-2">
             
                         <div onClick={() => onClickHandler(box.id, box.colorClass)}  id="modal-color-boxes"  className={box.colorClass}>
 
@@ -60,27 +67,49 @@ const UserDashboard = (props) => {
 
       })
 
-    return <div className="d-flex justify-content-between flex-wrap">
-            <CreateNewBoard/>
-
-            <Button className="p-5" color="danger" onClick={toggle}>{buttonLabel}Create new board...</Button>
-                  <Modal isOpen={modal} toggle={toggle} className={className} style={{maxWidth : '400px'}}>
+    return <div className="d-flex justify-content-start mt-5 flex-wrap">
+            <div className="pl-2">
+            <div className="d-flex pl-4">
+                  <span>
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                        </svg>
+                  </span>
+                  <h4 className="pl-4">Personal Boards</h4>
+            </div>
+      
+       
+            <Button  className="modalCreateBoardButton  ml-4" color="secondary" onClick={toggle}>{buttonLabel}Create new board...</Button>
+            </div>
+             
+                  <Modal isOpen={modal} toggle={toggle} className={`${className} modalBG`} style={{backgroundColor: 'transparent'}}>
                         <form onSubmit={onSubmitHandler}>
-                        <ModalBody>
-                              <input  className="ml-3" type="text" value={title} onChange={ e => setTitle ( e.target.value )}/>
-                              <div className="d-flex flex-wrap justify-content-center">
+                        <div className={`modal-header `} >
+                              <div className={`modal-create-board-color_blue ${divClass} input__wrapper__background`}>
+                                    <input placeholder="Add board title"  className="ml-3 inputTitle" type="text" value={title} onChange={ e => setTitle ( e.target.value )}/>
+                              </div>                    
+                        </div>
+                        <ModalBody className="">
+                              <div className="d-flex flex-wrap justify-content-evenly">
                                     {renderColorBoxes}
                               </div>
                         </ModalBody>
                         <ModalFooter>
-                              <div className="w-100 d-flex justify-content-start ml-3">
-                                    <Button type="submit" color="primary" onClick={toggle}>Create board</Button>{' '}
-                                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                              <div className="w-100 d-flex justify-content-start ml-4">
+                                    <Button className={`modal-create-board-color_blue ${divClass} `} type="submit" onClick={toggle}>Create board</Button>{' '}
+                                    <Button className="ml-3" color="secondary" onClick={toggle}>Cancel</Button>
                               </div>
                         </ModalFooter>
                         </form>
                         
                   </Modal>
+
+               
+       
+            <CreateNewBoard/>
+
+    
+
     </div>
 
    

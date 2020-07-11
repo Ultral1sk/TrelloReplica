@@ -4,7 +4,64 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.modalCreateBoardButton {
+  padding: 3.9rem 3.5rem !important;
+  background-color: rgb(220, 220, 220) !important;
+  margin-right: 1rem;
+}
+
+.modal-content {
+  background-color: transparent !important;
+  width: 400px !important;
+  border: none !important;
+  margin-top: 5rem !important;
+}
+
+.modal-header { 
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;;
+}
+
+.modal-footer {
+  border-top: none !important;
+}
+
+.input__wrapper__background {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 86%;
+  margin-left: 1rem;
+  height: 100px;
+  padding-top: 0 !important;;
+  border-radius: 5px;
+
+  
+}
+.inputTitle {
+  background: transparent !important;
+  padding: 1rem 1rem;
+  border: none;
+  color: rgb(245, 245, 245);
+
+  &:hover {
+    transition: background .5s;
+
+  }
+  &::placeholder {
+  color: rgba(255, 255, 255, 0.603);
+
+  }
+
+  &:focus {
+    outline: 0 !important;
+  }
+}
+
+
 @import './components//userLogin/UserLogin.scss';
 @import './components/userRegister/UserRegister.scss';
 @import './components/NewBoard/CreateNewBoard.scss';
-@import './components/renderComponent/renderStyles.scss'
+@import './components/renderComponent/renderStyles.scss';
+@import './components/navbar/Navbar.scss';

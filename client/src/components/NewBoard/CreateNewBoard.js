@@ -22,12 +22,13 @@ const CreateNewBoard = () => {
       }, [DBData]);
 
 
+      // dynamic route that gets the data from db and will send it to a random route with it's own ID
       const renderDataFromDB = DBData ? DBData.map((data, keys) => {
-            return     <div key={keys} id="dbBox" className={data.newBoardColorClass} style={{width: '200px'}}>
-                          <Link  to={{ pathname: `/newboard/${data._id}`, state:  data }} >
-                              <h2>{data.newBoardTitle}</h2>
-                          </Link>
+            return   <Link key={keys} id="dbBox"  to={{ pathname: `/newboard/${data._id}`, state:  data }} >
+                        <div id="class__receiver" className={data.newBoardColorClass} >
+                              <h4>{data.newBoardTitle}</h4>
                         </div>
+                          </Link>
       })
       :
       null
