@@ -5,13 +5,17 @@ import logo from '../assets/trellopng.png'
 
 const Navbar = () => {
 
-      const removeTokenToLogOut = () =>  {
-            // removing the token frm local storage so the user
+    
+
+      const onSubmitToRemoveToken = (e) => {
+                // removing the token frm local storage so the user
             // will be automatically redirected to the non restricted pages
             // in this case register/login
+            e.preventDefault()
+            window.location.href = '/login'
             localStorage.setItem("token", "")
-      }
 
+      }
 
       return (
       <nav className="navbar navbar-expand-lg  text-white">
@@ -33,8 +37,8 @@ const Navbar = () => {
                               </a>
                         </li>
                   </ul>
-                  <form className="form-inline my-2 my-lg-0">
-                        <button className="logout__button" onClick={removeTokenToLogOut}>Logout</button>
+                  <form onSubmit={onSubmitToRemoveToken} className="form-inline my-2 my-lg-0">
+                        <button type="submit" className="logout__button" >Logout</button>
                   </form>
             </div>
       </nav>

@@ -1,4 +1,4 @@
-import React, { useState }            from 'react'
+import React, { useState, useEffect }            from 'react'
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import {  Link  }                                from 'react-router-dom'
 import { classes }                               from '../classes'
@@ -9,15 +9,23 @@ import CreateNewBoard                            from '../components/NewBoard/Cr
 const initialState = { title : '',  id : '',   divClass : '' }
 
 const UserDashboard = (props) => {
-      const { buttonLabel, className }       = props;                         // modal reactstrap props
-      const [ modal, setModal ]              = useState(false);               // toggling the modal on/off
+      const { buttonLabel, className }       = props;                          // modal reactstrap props
+      const [ modal, setModal ]              = useState(false);                // toggling the modal on/off
       const [ title, setTitle ]              = useState('')
-      const [ id, setId ]                    = useState('')
-      const [ divClass, setDivClass ]        = useState('')
-
-      const [ combinedData, setCombinedData] = useState(initialState)         // combining all the state so it can be send in database on submit
-
+      const [ id, setId ]                    = useState(classes[0].id)         // becasuse the default value is empty we have to start with the first value comming from the classes
+      const [ divClass, setDivClass ]        = useState(classes[0].colorClass) // same here if we don't put a default value the state will be empty
+      const [ combinedData, setCombinedData] = useState(initialState)          // combining all the state so it can be send in database on submit
       
+
+      useEffect(() => {
+            setCombinedData({
+                  title       : title, 
+                  id          : id,
+                  divClass    : divClass
+              });
+      }, [title, divClass, id])
+   
+
 
       const toggle = () => setModal(!modal);
 
@@ -35,17 +43,17 @@ const UserDashboard = (props) => {
 
       const onSubmitHandler = ( e ) => {
             e.preventDefault();
-            
+            console.log(combinedData)
             axios.post(`http://localhost:3001/newBoard/${combinedData.id}`, combinedData)
             .then(res => 
             {
+                  console.log(res.status)
                   if( res.status === 200 ) { 
-                        return setCombinedData({
-                              title       : '',
-                              id          : '',
-                              divClass    : ''
-                        });
-                  
+                        // cleaning the state and with the the input 
+                        setId(0)
+                        setTitle('')
+                        setDivClass('')
+            
                   }
             
                   else                     { return res.status(500);          }
@@ -68,6 +76,7 @@ const UserDashboard = (props) => {
       })
 
     return <div className="d-flex justify-content-start mt-5 flex-wrap">
+      
             <div className="pl-2">
             <div className="d-flex pl-4">
                   <span>

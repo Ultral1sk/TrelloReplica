@@ -34,9 +34,8 @@ const CreateNewBoard = () => {
       null
 
 
-      return <>
-            {renderDataFromDB}
-      </>
+      
+      return <>  {renderDataFromDB}  </>
 }
 
 export default CreateNewBoard

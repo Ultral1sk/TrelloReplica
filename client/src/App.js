@@ -5,32 +5,40 @@ import UserLogin             from './components/userLogin/UserLogin';
 import UserDashboard         from './pages/UserDashboard';
 import TestSecretsRoute      from './pages/TestSecretsRoute';
 import withAuth              from './utility/withAuth';
-import Navbar                from './components/navbar/Navbar';
 import ErrorBoundary         from './components/error/ErrorBoudary';
-import RenderComponent from './components/RenderComponent/RederComponent'
+import DynamicComponent      from './components/DynamicComponent/DynamicComponent'
+import Navbar                from './components/navbar/Navbar'
+
 import './App.scss';
 
 
 function App() {
 
-
+  const location = window.location.pathname
+  // const NavbarLocation = window.location.location === 'http://localhost:3000/login' || 'http://localhost:3000/register' ? '' : <Navbar />
+  console.log(location)
+  const NavbarLocation = location === '/login' || location === '/register'  ? null : <Navbar />
   return <Route>
             {/* <ErrorBoundary> */}
             <ErrorBoundary>
-            <Navbar />
-            <Switch>
+            
 
+            {NavbarLocation}
+            <Switch>
             {/* PROTECTED Routes */}
             <Route exact path="/"             component={withAuth( UserDashboard, '/' )} />
             <Route exact path="/secrets"      component={withAuth( TestSecretsRoute, '/' )} />
     
             {/* DYNAMIC Route */}
-            <Route exact path="/newboard/:id" component={RenderComponent} />
+            <Route exact path="/newboard/:id" component={DynamicComponent} />
 
             {/* UNPROTECTED Routes */}
             <Route exact path="/register"     component={UserRegister} />
             <Route exact path="/login"        component={UserLogin} />
             </Switch>
+  
+
+          
             </ErrorBoundary>
             {/* </ErrorBoundary> */}
     </Route>
