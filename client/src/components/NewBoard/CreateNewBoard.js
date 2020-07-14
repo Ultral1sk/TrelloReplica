@@ -12,7 +12,7 @@ const CreateNewBoard = () => {
 
       useEffect(() => {
          
-                  axios.get(`http://localhost:3001/newBoard`)
+                  axios.get(`http://localhost:3001/newBoard/`)
                   .then( response => { if( response.status === 200 ) { return setDBData(response.data.data) }
                              
                   })

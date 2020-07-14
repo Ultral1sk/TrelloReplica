@@ -1,0 +1,38 @@
+.addNewCardWrapper {
+      float: left;
+    background: #e2e4e6;
+    border-radius: 4px;
+    padding: 1rem 0.25rem;
+    margin-left: 1rem;
+    input {
+    background: #e2e4e6 !important;
+    border: 0;
+    margin: 0.5rem 1rem;
+      &:hover {
+      background: #e2e4e6 !important;
+
+      }
+    }
+
+    .add__new__card__button {
+      background: #e2e4e6 !important;
+          border: none;
+          margin-right: 1.25rem;
+          &:focus {
+                outline:  none;
+          }
+    }
+    .remove__new__card__button {
+      background: #e2e4e6 !important;
+      margin-left: 0.5rem;
+      border: none;
+      &:focus {
+            outline:  none;
+      }
+}
+}
+
+.add--card--render--wrapper {
+      display: flex;
+      margin: 1rem 1rem;
+}

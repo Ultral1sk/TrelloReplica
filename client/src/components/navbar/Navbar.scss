@@ -1,8 +1,4 @@
-@mixin vendorPrefix ( $attribute,  $value) {
-  @each $prefix in -webkit-, -moz-, -ms-, -o-, "" {
-#{ $prefix }#{ $attribute } :  $value;
-}
-}
+@import "../../utility/webkitTransition";
 .navbar {
       background-color: rgb(0, 121, 191) !important;
 
@@ -15,6 +11,11 @@
 
             &:focus {
                   outline: none !important;
+            }
+
+            &:hover {
+                  background-color:   rgb(98, 195, 252) !important;
+                  @include vendorPrefix(transition, 1s)
             }
       }
 }

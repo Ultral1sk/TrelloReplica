@@ -9,7 +9,6 @@ const connectDB   = require('./config/db');
 const authPath = require('./router/auth');
 const createNewBoard = require('./router/createNewBoard');
 
-
 // Mongodb Atlas connection
 connectDB();
 app.use(bodyParser.json());

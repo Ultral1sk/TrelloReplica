@@ -1,5 +1,5 @@
 import React                 from 'react';
-import { Route, Switch, useHistory }             from 'react-router-dom'
+import { Route, Switch }     from 'react-router-dom'
 import UserRegister          from './components/userRegister/UserRegister'
 import UserLogin             from './components/userLogin/UserLogin';
 import UserDashboard         from './pages/UserDashboard';
@@ -15,9 +15,8 @@ import './App.scss';
 function App() {
 
   const location = window.location.pathname
-  // const NavbarLocation = window.location.location === 'http://localhost:3000/login' || 'http://localhost:3000/register' ? '' : <Navbar />
-  console.log(location)
   const NavbarLocation = location === '/login' || location === '/register'  ? null : <Navbar />
+
   return <Route>
             {/* <ErrorBoundary> */}
             <ErrorBoundary>
